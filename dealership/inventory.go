@@ -15,6 +15,10 @@ type Inventory[T Vehicle] struct {
 }
 
 func (inventory *Inventory[T]) AddItem(item T) {
+	if inventory.items == nil {
+		inventory.items = make(map[int]T)
+	}
+
 	index := len(inventory.items)
 	inventory.items[index] = item
 }
@@ -28,5 +32,9 @@ func (inventory Inventory[T]) GetItem(index int) (T, error) {
 }
 
 func (inventory Inventory[T]) GetItems() map[int]T {
+	if inventory.items == nil {
+		return nil
+	}
+
 	return inventory.items
 }

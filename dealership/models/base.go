@@ -3,8 +3,8 @@ package models
 import "time"
 
 type Accessory struct {
-	Name  string `json:"name"`
-	Value string `json:"value"`
+	Name  string  `json:"name"`
+	Value float64 `json:"value"`
 }
 
 type Base struct {
