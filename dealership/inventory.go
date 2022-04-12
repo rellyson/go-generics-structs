@@ -23,7 +23,7 @@ func (inventory *Inventory[T]) AddItem(item T) {
 	inventory.items[index] = item
 }
 
-func (inventory Inventory[T]) GetItem(index int) (T, error) {
+func (inventory *Inventory[T]) GetItem(index int) (T, error) {
 	if v, ok := inventory.items[index]; ok {
 		return v, nil
 	}
@@ -31,7 +31,7 @@ func (inventory Inventory[T]) GetItem(index int) (T, error) {
 	return *new(T), errors.New("index out of range")
 }
 
-func (inventory Inventory[T]) GetItems() map[int]T {
+func (inventory *Inventory[T]) GetItems() map[int]T {
 	if inventory.items == nil {
 		return nil
 	}
